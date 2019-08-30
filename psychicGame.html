@@ -14,8 +14,8 @@
         <p>Guess what letter I'm thinking of</p>
         <p id = "winText">Wins: </p>
         <p id = "lossText">Losses: </p>
-        <p id = "guessesLeftText">Guesses Left: </p>
-        <p id = "guessesDoneText">Guesses So Far:</p>
+        <p id = "guessesLeftText">Number of Guesses Left: 9 </p>
+        <p id = "guessesDoneText">Letters Guessed So Far: </p>
     </div>
 <div id=game> </div>
 <script>
@@ -27,39 +27,26 @@
         "T", "U", "V", "W", "X", "Y", "Z"];
 
 // Starting scores and current guess number 
-    var score = 0;
-    var guessNumber =0;
+    var lettersGuessed= [];
+    var guessNumberRemaining =0;
     var wins = 0;
     var losses =0;
 
 
-// TODO: Function to limit guess attempts to nine trys
-
-// function guessNumber() {
-// if (guessNumber <= 9) {
-//     document.querySelector(guessLetter)
-    
-// } (let index = 0; index < array.length; index++) {
-//     const element = array[index];
-
-// }
-// else {
-//     document.querySelector("#")
-// }
-// }
-
-// TODO: Function that updates score
-// function updateScore() {
-//     document.querySelector(#sco)
-// }
 
 
 // Actual game 
 document.onkeyup = function(event) {
 
-// TODO: Fill in guess
-    // updateScore();
-    // updateGuessNumber();
+// 
+
+
+// limit guess attempts to nine trys
+    if (guessNumberRemaining >8) {
+        alert("You're done!");
+        return };
+    guessNumberRemaining = guessNumberRemaining + 1
+
 
 
     var guessKeyPress = event.key.toUpperCase();
@@ -80,14 +67,15 @@ document.onkeyup = function(event) {
         alert("You lose! It's actually: " + letterPicked);
 
     }
+// Remember which letter pressed to screen
+    lettersGuessed.push(guessKeyPress);
 
 // Writes to screen with updated stats
     winText.textContent = "Wins: " + wins;
     lossText.textContent = "Losses: " + losses;
-    // guessesLeftText.textContent= "Guesses Left" + Guesses-1
-    guessesDoneText.textContent = "You've chosen: " + guessKeyPress;
+    guessesLeftText.textContent= "Number of Guesses Left: " + (9 - guessNumberRemaining);
+    guessesDoneText.textContent = "Letters Guessed So Far: " + lettersGuessed ;
     
-// TODO: Remember which letter pressed to screen
 
 
 };
