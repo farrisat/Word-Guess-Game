@@ -11,41 +11,83 @@
 <body>
     <div>
     <h1>The Psychic Game!</h1>
-        <p id= "guessText">Guess what letter I'm thinking of</p>
+        <p>Guess what letter I'm thinking of</p>
         <p id = "winText">Wins: </p>
         <p id = "lossText">Losses: </p>
         <p id = "guessesLeftText">Guesses Left: </p>
-        <p id = "guessesDoneText">Guesses So Far: </p>
+        <p id = "guessesDoneText">Guesses So Far:</p>
     </div>
 <div id=game> </div>
 <script>
-
+// Question Array
     var guessLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
-        "T", "U", "V", "W", "X", "Y", "Z", "_"];
+        "T", "U", "V", "W", "X", "Y", "Z",];
 
     var actualLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
-        "T", "U", "V", "W", "X", "Y", "Z", "_"];
+        "T", "U", "V", "W", "X", "Y", "Z"];
 
+// Starting scores and current guess number 
+    var score = 0;
+    var guessNumber =0;
+    var wins = 0;
+    var losses =0;
+
+
+// TODO: Function to limit guess attempts to nine trys
+
+// function guessNumber() {
+// if (guessNumber <= 9) {
+//     document.querySelector(guessLetter)
+    
+// } (let index = 0; index < array.length; index++) {
+//     const element = array[index];
+
+// }
+// else {
+//     document.querySelector("#")
+// }
+// }
+
+// TODO: Function that updates score
+// function updateScore() {
+//     document.querySelector(#sco)
+// }
+
+
+// Actual game 
 document.onkeyup = function(event) {
-    var guessKeyPress = event.key;
+
+// TODO: Fill in guess
+    // updateScore();
+    // updateGuessNumber();
+
+
+    var guessKeyPress = event.key.toUpperCase();
     console.log("guessKeyPress: " + event.key);
 
     var letterPicked = actualLetter[Math.floor(Math.random()*actualLetter.length)];
 
-    alert("Your guess: " + guessLetter);
 
-    alert("Actual letter: " + actualLetter);
+    alert ("Your guess: " + guessKeyPress);
 
-    if (guessKeyPress === letterPicked){
-        console.log("Win!");
+
+    if (guessKeyPress === letterPicked){ 
+        wins++;
+        alert("That's right! Now for the winning lottery numbers...");
+
+    } else {
+        losses++;
+        alert("You lose! It's actually: " + letterPicked);
+
     }
 
-    else {console.log("You lose!");
-
-    }
-
+// Writes to screen with updated stats
+    winText.textContent = "Wins: " + wins;
+    lossText.textContent = "Losses: " + losses;
+    // guessesLeftText.textContent= "Guesses Left" + Guesses-1
+    guessesDoneText.textContent = "You've chosen: " + guessKeyPress;
     
-
+// TODO: Remember which letter pressed to screen
 
 
 };
