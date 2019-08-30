@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+    <h1>The Psychic Game!</h1>
+        <p id= "guessText">Guess what letter I'm thinking of</p>
+        <p id = "winText">Wins: </p>
+        <p id = "lossText">Losses: </p>
+        <p id = "guessesLeftText">Guesses Left: </p>
+        <p id = "guessesDoneText">Guesses So Far: </p>
+    </div>
+<div id=game> </div>
+<script>
+
+    var guessLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
+        "T", "U", "V", "W", "X", "Y", "Z", "_"];
+
+    var actualLetter = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S",
+        "T", "U", "V", "W", "X", "Y", "Z", "_"];
+
+document.onkeyup = function(event) {
+    var guessKeyPress = event.key;
+    console.log("guessKeyPress: " + event.key);
+
+    var letterPicked = actualLetter[Math.floor(Math.random()*actualLetter.length)];
+
+    alert("Your guess: " + guessLetter);
+
+    alert("Actual letter: " + actualLetter);
+
+    if (guessKeyPress === letterPicked){
+        console.log("Win!");
+    }
+
+    else {console.log("You lose!");
+
+    }
+
+    
+
+
+
+};
+
+   
+
+</script>
+</body>
+
+</html>
